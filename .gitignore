@@ -2,3 +2,7 @@
 example-game/
 class_description.md
 *solution.c
+main.c
+template/
+*.zig-cache/
+zig-out/

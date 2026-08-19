@@ -19,11 +19,18 @@ individually outside of class. Students must have access to a Personal Computer
 A tablet will not suffice. 
 
 ## Lessons
+### Project Setup
  1. [Setting Up Your Project](/lessons/0001/README.md)
+
+### Mechanics
  2. [Adding a Jet](/lessons/0002/README.md)
  3. [Generating Asteroids](/lessons/0003/README.md)
  4. [Making Asteroids Dangerous](/lessons/0004/README.md)
  5. [Firing the Jet's Laser](/lessons/0005/README.md)
  6. [Adding a Boss Fight](/lessons/0006/README.md)
+
+### Beautification
+ 7. [Using Sprites](/lessons/0007/README.md)
+ 8. [Adding Sounds](/lessons/0008/README.md)
 
 

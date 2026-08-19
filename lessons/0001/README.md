@@ -1,11 +1,8 @@
 # Lesson One -- Setting Up Your Project
-Hate reading? Watch the video for this lesson instead: [https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
 We need to setup and/or download/install a few things to setup our project:
 1. A terminal such as Command Prompt (Windows) or Terminal (MacOS)
 2. A text editor such as VS Code or Notepad++ (Windows Only). 
-3. The [Zig](https://ziglang.org/) programming language,
-    which you will use as a C compiler and build system.
+3. A C compiler. 
 4. [Raylib](https://github.com/raysan5/raylib) -- an 
     open-source video game programming library.
 
@@ -29,38 +26,40 @@ You should see a list of directory contents.
 
 ![Cmd Dir](cmd_dir.png "Cmd Dir")
 
+### Mac
+- Press **Command + Spacebar** to open Spotlight.
+- Type **Terminal**.
+- Press **Return**.
 
+## A Text Editor
+I recommend using a very basic text editor for this course.
 
+### Windows
+You can use the built-in Notepad, or you can install a third-party
+editor such as [Notepad++](https://notepad-plus-plus.org/).
 
+I recommend **Notepad++** for the syntax highlighting. 
 
-### Terminal
+### Mac
+You can install CotEditor from the Mac App Store. 
 
-Your machine should have a terminal / shell readily available. This text will assume
-you are using **Windows Command Prompt**, but the instructions throughout should be 
-easy to adapt for any terminal & operating system.
+## A C Compiler and Raylib
+We will work on these together in class. 
 
-#### Windows 
-Type "cmd" into your search bar (usually at the bottom right) and click on "Command Prompt". 
-In the window that appears, type "ver" and hit Enter. You should see something like this:
-`Microsoft Windows [Version 10.0.26200.8037]`
+## Program
+When everything is working from this lesson, you use the [code](code.c) from this lesson.
 
-#### Other Operating Systems
-Google search "How to use a terminal on {my operating system}" and follow the instructions. 
-Try to get the terminal to tell you its version.
+1. Create a folder called **jet_game** or something similar in a location on your computer.
+2. Create a file called **main.c** in that folder. 
+3. Copy the contents of [code.c](code.c) into **main.c**.
+4. Compile and run the **main.c** file (varies by C compiler).
 
-### A Text Editor
-Notepad comes pre-installed on Windows. It should suffice for this course, but you may
-find it beneficial to install a more feature-complete code editor. I recommend 
-[VS Code](https://code.visualstudio.com/) for beginners and [Neovim](https://neovim.io/) 
-(my editor of choice) if you like steep learning curves and numerous headaches. 
+For example on my machine:
+```shell
+D:\jet_game > zig build run
+```
 
-### Zig
-Zig is a modern systems programming language. We will not use the language itself
-in this course (although I highly recommend it), but we will use it to compile our
-C programs.
-
-Go to [https://ziglang.org/download], scroll down to version **TDB**, and download the
-correct zip file for your Operating System. Unzip and add the executable to your PATH.
+Now you should see the **Hello, Raylib!** window on your screen.
 
 
 [Next Lesson -->](../0002/whatever_this_is.md)  

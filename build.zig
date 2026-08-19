@@ -20,7 +20,7 @@ pub fn build(b: *std.Build) void {
 
     if (lesson) |l| {
         exe.root_module.addCSourceFile(.{.file = b.path(
-            if (std.bufPrint(&fp_buffer, "lessons/{:0>4}/code.c", .{l})) |p| p else "main.c"
+            std.fmt.bufPrint(&fp_buffer, "lessons/{:0>4}/code.c", .{l}) catch "main.c"
         )});
     } else {
         exe.root_module.addCSourceFile(.{.file = b.path("main.c")});
