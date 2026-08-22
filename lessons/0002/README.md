@@ -47,6 +47,30 @@ We will start by drawing our jet as a rectangle. In [raylib.h](../../raylib/incl
 find the `DrawRectangleV` function. The definition is as follows:
 
 ```c
-RLAPI void DrawRectangleV(Vector2 position, Vector2 size, Color color);                                  // Draw a color-filled rectangle (Vector version)
+RLAPI void DrawRectangleV Vector2 position, Vector2 size, Color color);                                  // Draw a color-filled rectangle (Vector version)
 ```
+
+In the drawing block in your main loop, add this line:
+
+```c
+// other code
+while (!WindowShouldClose()) {
+        BeginDrawing();
+            //other code
+            DrawRectangleV(jet.position, JET_SIZE, BLUE); // <-- Add this line
+        EndDrawing();
+    }
+}
+```
+
+Now try to compile this. You should get an error saying that JET_SIZE is not defined. 
+So we need to define it. Add this line below your definition of `jet`:
+
+```c
+Jet jet = (Jet){ 
+    .position = (Vector2){ 100, 100 }
+};
+Vector2 JET_SIZE = (Vector2){34, 55}
+```
+
 

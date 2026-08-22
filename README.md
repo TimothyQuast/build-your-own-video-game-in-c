@@ -1,4 +1,4 @@
-# Intro to Programming in  C
+# Build Your Own Video Game in C
 
 **Note to reader**: You may be reading this before I've finished writing it. This is intended
 to be completed by January 2027 before the Spring 2027 semester. Before then, please excuse anything
