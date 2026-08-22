@@ -1,4 +1,4 @@
-# Lesson Two
+# Adding a Jet
 Now, instead of "Hello, World!", we are going to add a jet that you can 
 move around using the arrow keys or WASD on your keyboard. 
 
@@ -34,14 +34,19 @@ Jet jet = (Jet){
 };
 ```
 
-REWRITE THE BELOW 
-
 This tells C that we will have a `Vector2` variable called `jet`. Since we
 declared it outside of `main`, it is called a global variable, meaning we can
 access it from anywhere in our program. We set the initial position to (100, 100).
 Later you can change the initial position and see what happens.
 
-## Drawing the Jet
-We will draw a triangle to represent our jet. Later, we will make our jet prettier.
+Notice that the Jet struct also contains Vector2 variables v1, v2, and v3. We will use
+these later to make the jet a triangle. 
 
+## Drawing the Jet as a Rectangle
+We will start by drawing our jet as a rectangle. In [raylib.h](../../raylib/include/raylib.h),
+find the `DrawRectangleV` function. The definition is as follows:
+
+```c
+RLAPI void DrawRectangleV(Vector2 position, Vector2 size, Color color);                                  // Draw a color-filled rectangle (Vector version)
+```
 

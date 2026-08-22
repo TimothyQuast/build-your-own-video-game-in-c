@@ -62,6 +62,6 @@ D:\jet_game > zig build run
 Now you should see the **Hello, Raylib!** window on your screen.
 
 
-[Next Lesson -->](../0002/whatever_this_is.md)  
+[Next Lesson -->](../0002/README.md)  
 [Back to Index](../../README.md)
 
