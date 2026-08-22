@@ -29,7 +29,7 @@ typedef struct Jet {
     Vector2 v3;
 } Jet;
 
-Jet jet = (Jet){ 
+Jet jet = (Jet){ timothy.m.quast@gmail.com
     .position = (Vector2){ 100, 100 }
 };
 ```
@@ -72,5 +72,9 @@ Jet jet = (Jet){
 };
 Vector2 JET_SIZE = (Vector2){34, 55}
 ```
+
+Now if you compile and run, you should get a window like this:
+
+![Rectangle Jet](rectangle_jet.png "A Rectangle Jet")
 
 
