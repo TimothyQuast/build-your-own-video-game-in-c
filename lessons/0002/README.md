@@ -4,7 +4,7 @@ move around using the arrow keys or WASD on your keyboard.
 
 By the end of this lesson, you should be able to create a window like this:
 
-![Triangle Jet](hello_raylib.png "A Triangle Jet")
+![Triangle Jet](triangle_jet.png "A Triangle Jet")
 
 ## The Jet Variable
 The first thing we need to define is a `struct` and global variable called `Jet` and `jet`. 
@@ -29,7 +29,7 @@ typedef struct Jet {
     Vector2 v3;
 } Jet;
 
-Jet jet = (Jet){ timothy.m.quast@gmail.com
+Jet jet = (Jet){
     .position = (Vector2){ 100, 100 }
 };
 ```
@@ -205,3 +205,60 @@ int main(void) {
 }
 
 ```
+
+## Making the Jet a Triangle
+Now we want our jet to be a beautiful triangle instead of a hideous rectangle.
+To do that, we will use `DrawTriangle` from [raylib.h](../../raylib/include/raylib.h):
+
+```c
+RLAPI void DrawTriangle(Vector2 v1, Vector2 v2, Vector2 v3, Color color);                                // Draw a color-filled triangle (vertex in counter-clockwise order!)
+```
+
+The three vectors are the three points of the triangle. They must be passed to
+`DrawTriangle` in counter-clockwise order, or else the function will
+do nothing. 
+
+Behold my amazing MS Paint drawing which demonstrates how to determine
+v1, v2, and v3. 
+
+![Jet Maths](jet_maths.png "Jet Maths")
+
+Now you just need to set the following six values using your algebra skills and your noggin:
+1. `jet.v1.x`, 
+2. `jet.v1.y`, 
+3. `jet.v2.x`, 
+4. `jet.v2.y`, 
+5. `jet.v3.x`, 
+6. `jet.v3.y`, 
+
+Then you can replace the Rectangle code like so:
+
+```c
+// other code
+void set_jet_vertices() {
+    // Example:
+    jet.v1.y = JET_SIZE.y + jet.position.y;
+
+    // Set your other jet vertices here.
+}
+
+// other code
+while (!WindowShouldClose()) {
+        //other code
+        set_jet_vertices();
+        BeginDrawing();
+            //other code
+            // DrawRectangleV(jet.position, JET_SIZE, BLUE);
+            DrawTriangle(jet.v1, jet.v2, jet.v3, BLUE);
+        EndDrawing();
+    }
+}
+```
+
+Now compile and run. If you've done everything correctly (which is rarely the case in programming),
+you should be done with the lesson. You should see a triangle jet that you can move around with your
+arrow keys or WASD. 
+
+[Previous Lesson -->](../0001/README.md)  
+[Next Lesson -->](../0003/README.md)  
+[Back to Index](../../README.md)
