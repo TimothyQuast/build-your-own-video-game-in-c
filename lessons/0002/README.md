@@ -224,12 +224,12 @@ v1, v2, and v3.
 ![Jet Maths](jet_maths.png "Jet Maths")
 
 Now you just need to set the following six values using your algebra skills and your noggin:
-1. `jet.v1.x`, 
-2. `jet.v1.y`, 
-3. `jet.v2.x`, 
-4. `jet.v2.y`, 
-5. `jet.v3.x`, 
-6. `jet.v3.y`, 
+1. `jet.v1.x` 
+2. `jet.v1.y` 
+3. `jet.v2.x` 
+4. `jet.v2.y` 
+5. `jet.v3.x`
+6. `jet.v3.y` 
 
 Then you can replace the Rectangle code like so:
 
@@ -237,7 +237,7 @@ Then you can replace the Rectangle code like so:
 // other code
 void set_jet_vertices() {
     // Example:
-    jet.v1.y = JET_SIZE.y + jet.position.y;
+    jet.v1.y = jet.position.y + JET_SIZE.y;
 
     // Set your other jet vertices here.
 }
@@ -259,6 +259,6 @@ Now compile and run. If you've done everything correctly (which is rarely the ca
 you should be done with the lesson. You should see a triangle jet that you can move around with your
 arrow keys or WASD. 
 
-[Previous Lesson -->](../0001/README.md)  
+[<-- Previous Lesson](../0001/README.md)  
 [Next Lesson -->](../0003/README.md)  
 [Back to Index](../../README.md)

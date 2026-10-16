@@ -7,6 +7,10 @@
 int main(void) {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Jet Game");
     SetTargetFPS(TARGET_FPS);
+
+    while (!IsWindowReady()) {}
+    SetWindowFocused();
+
     while (!WindowShouldClose()) {
         BeginDrawing();
             ClearBackground(BLACK);

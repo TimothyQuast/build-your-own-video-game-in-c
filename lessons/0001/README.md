@@ -47,7 +47,7 @@ You can install CotEditor from the Mac App Store.
 We will work on these together in class. 
 
 ## Program
-When everything is working from this lesson, you use the [code](code.c) from this lesson.
+When everything is working from this lesson, use the [code](code.c) from this lesson.
 
 1. Create a folder called **jet_game** or something similar in a location on your computer.
 2. Create a file called **main.c** in that folder. 
@@ -60,7 +60,6 @@ D:\jet_game > zig build run
 ```
 
 Now you should see the **Hello, Raylib!** window on your screen.
-
 
 [Next Lesson -->](../0002/README.md)  
 [Back to Index](../../README.md)
