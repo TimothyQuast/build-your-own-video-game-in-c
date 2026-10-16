@@ -4,7 +4,7 @@ move around using the arrow keys or WASD on your keyboard.
 
 By the end of this lesson, you should be able to create a window like this:
 
-![Triangle Jet](triangle_jet.png "A Triangle Jet")
+![Triangle Jet](moving_triangle_jet.gif "A Triangle Jet")
 
 ## The Jet Variable
 The first thing we need to define is a `struct` and global variable called `Jet` and `jet`. 
@@ -30,7 +30,7 @@ typedef struct Jet {
 } Jet;
 
 Jet jet = (Jet){
-    .position = (Vector2){ 100, 100 }
+    .position = (Vector2){ SCREEN_WIDTH / 2, SCREEN_HEIGHT * 2 / 3 }
 };
 ```
 
@@ -68,7 +68,7 @@ So we need to define it. Add this line below your definition of `jet`:
 
 ```c
 Jet jet = (Jet){ 
-    .position = (Vector2){ 100, 100 }
+    .position = (Vector2){ SCREEN_WIDTH / 2, SCREEN_HEIGHT * 2 / 3 }
 };
 Vector2 JET_SIZE = (Vector2){34, 55}
 ```
