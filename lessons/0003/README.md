@@ -86,8 +86,36 @@ void maybe_generate_asteroid() {
         return;
     }
 }
+```
+
+This function currently generates the first asteroid if it doesn't exist. 
+Later, we will make it generate all the asteroids in random locations.
+
+Now call `maybe_generate_asteroid` from your render loop. Also add the code to
+draw `asteroid[0]` if it exists like so:
+
+```c
+    while (!WindowShouldClose()) {
+        handle_movement();
+        set_jet_vertices();
+        maybe_generate_asteroid(); // add this line
+
+
+        BeginDrawing();
+            // ... other code ...
+
+            // add these lines // // // // // // // // // // // // // // // // // // // //
+            if (asteroids[0].exists) {
+                DrawRectangleV(asteroids[0].position, ASTEROID_SIZE, GRAY);
+            }
+            // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+        EndDrawing();
+    }
 
 ```
+
+This should give you a window that has a stationary asteroid and a movable jet.
 
 ![One Asteroid!](one_asteroid.png "One Asteroid")
 
