@@ -120,7 +120,38 @@ This should give you a window that has a stationary asteroid and a movable jet.
 ![One Asteroid!](one_asteroid.png "One Asteroid")
 
 ## Moving Asteroids
+Now, if it exists, we want to move the asteroid downward towards our fearless pilot. 
+When it reaches the end of the screen, we want to cause it to no longer exists. 
+That way, we can generate it again and continue endangering our hero. 
+
+Define a function called `step_asteroids` like so and fill in the code for 
+the TODO items.
+
+```c
+void step_asteroids() {
+    if (asteroids[0].exists) {
+        // TODO increase asteroids[0]'s y position by ASTEROID_SPEED.
+        if (asteroids[0].position.y > SCREEN_HEIGHT) {
+            // TODO make asteroids[0] no longer exist.
+        }
+    }
+}
+```
+
+Once you've done the TODO items, call `step_asteroids` below `maybe_generate_asteroid`.
+
+```c
+    // ... other code ...
+    maybe_generate_asteroid(); 
+    step_asteroids();
+    // ... other code ...
+```
+
+Now you should see the asteroid moving down off the screen and immediately reappearing 
+continuiously. 
+
+## Randomly Generating One Asteroid
 TODO
 
-## Generating Asteroids
+## Generating All Asteroids
 TODO
