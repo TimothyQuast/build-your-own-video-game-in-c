@@ -89,9 +89,7 @@ void maybe_generate_asteroid() {
 
 ```
 
-
-
-![One Asteroid!](one_asteroid.gif "One Asteroid")
+![One Asteroid!](one_asteroid.png "One Asteroid")
 
 ## Moving Asteroids
 TODO
