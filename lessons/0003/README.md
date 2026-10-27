@@ -112,14 +112,13 @@ draw `asteroid[0]` if it exists like so:
 
         EndDrawing();
     }
-
 ```
 
 This should give you a window that has a stationary asteroid and a movable jet.
 
 ![One Asteroid!](one_asteroid.png "One Asteroid")
 
-## Moving Asteroids
+## Moving the Asteroid
 Now, if it exists, we want to move the asteroid downward towards our fearless pilot. 
 When it reaches the end of the screen, we want to cause it to no longer exists. 
 That way, we can generate it again and continue endangering our hero. 
@@ -151,7 +150,126 @@ Now you should see the asteroid moving down off the screen and immediately reapp
 continuiously. 
 
 ## Randomly Generating One Asteroid
-TODO
+Now, we don't want the asteroid to simply appear in the middle of the screen. 
+Instead, we want it to start at a random `x` position. And we also want it to move
+into view from the top of the screen. 
+
+To do the random x position, we will use random number generation. The
+built-in `rand` function in C's stdlib (included at the top) generates a
+number between 0 and RAND_MAX. Therefore, if we do the following:
+
+```c
+r = rand() / (double)RAND_MAX;
+```
+
+Then `r` will be a random number between 0 and 1. Moreover, `r * SCREEN_WIDTH` would be 
+a number between 0 and `SCREEN_WIDTH`. We can use this to make `asteroids[0]` appear in
+a random `x` position each time it generates.
+
+First, we have to set the random seed using the current time. Add this line to the top
+of your main function:
+
+```c
+int main(void) {
+    srand((unsigned)time(NULL)); // add this line
+    // ... other code ...
+}
+```
+
+Now in `maybe_generate_asteriod`, add these lines and fill in the TODO items:
+
+```c
+void maybe_generate_asteroid() {
+    double r; // add this
+    if (!asteroids[0].exists) {
+        r = rand() / (double)RAND_MAX; 
+        asteroids[0].exists = 1;
+        // TODO: set asteroid[0].position.x to be a random number between 
+        //  0 and (SCREEN_WIDTH - ASTEROID_SIZE.x)
+        //
+        //  Thought Question: why do we want to subtract ASTEROID_SIZE.x
+        //  from screen width here?
+
+        // TODO: set asteroid[0].position.y so that the asteroid starts
+        // just off the screen at the top. 
+        //
+        //  Hint 1: y = 0 is the top of the screen.
+        //  Hint 2: y can be negative.
+
+        return; // This return statement is irreelevant now. We will want it later
+        // when we turn this into a loop.
+    }
+}
+```
+
+Now when you run the program, the asteroid should slide into the screen from the top
+and appear in a random `x` position each time it generates. 
 
 ## Generating All Asteroids
-TODO
+
+Our game will not be very fun with only one asteroid. We need more danger! 
+Now we are going to make our code operate on all asteroids. 
+
+Before you read on -- STOP! You may already be able to figure out how to do this.
+If you think you can, try to figure it out before reading below. Otherwise, here is a hint. 
+
+### Hint:
+You already saw code before that loops through all asteroids and makes sure they 
+don't exist. In your main function, you have this code:
+
+```c
+for (int i = 0; i < NUM_ASTEROIDS; i++) {
+    asteroids[i].exists = 0;
+}
+```
+
+You simply need to apply the same thing to any code that refers to `asteroids[0]`. 
+Add the for loop above the code, indent the code an additional level, and add
+a curly bracket at the end to close the loop. Then change `asteroids[0]` to `asteroids[i]`.
+
+Now you should see 10 asteroids generating almost all at once. When they reach the end of the
+screen, they should immediately reappear at the top. It is likely that some will overlap.
+That's okay for now. We can improve the generation logic later to prevent overlaps. 
+
+Thought Question: Why are the asteroids slightly offset?
+
+## Desyncronizing Asteroid Generation
+Next we want to prevent the asteroids from generating all at once. To do that
+we will use random number generation again. Add this macro definition to
+your `#define` section at the top:
+
+```c
+#define ASTEROID_GEN_COEFF .05
+```
+
+This stands for Asteroid Generation Coefficient. This will be interpreted as:
+"The probability that an asteroid will generate in a given frame assuming that 
+there is at least one asteroid which does not exist." So `.05` means we have
+a 5% probability of generating a new asteroid each frame (as long as one does not
+exist). 
+
+Now in `maybe_generate_asteroid`, add these two lines:
+
+```c
+if (!asteroids[i].exists) { // already exists
+    r = rand() / (double)RAND_MAX; // add this line
+    if (r > ASTEROID_GEN_COEFF) return; // add this line
+    r = rand() / (double)RAND_MAX; // already exists
+
+    // ... other code ...
+}
+```
+
+This will cause an asteroid to generate only if `r` less than or equal to 
+`ASTEROID_GEN_COEFF`. If `r` is greater, the `return` statement will immediately
+exit the function. 
+
+Now you should see asteroids generating like the gif at the top. 
+
+Try playing around with the values for `NUM_ASTEROIDS` and `ASTEROID_GEN_COEFF`
+to see what happens. But don't make `NUM_ASTEROIDS` too large or you may
+crash your game.
+
+[<-- Previous Lesson](../0002/README.md)  
+[Next Lesson -->](../0004/README.md)  
+[Back to Index](../../README.md)

@@ -1,4 +1,7 @@
 #include "raylib.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define SCREEN_WIDTH 987
 #define SCREEN_HEIGHT 610
